@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // MongoDB connection URL (replace with your MongoDB Atlas URL)
-const mongoURI = 'mongodb://<username>:<password>@<cluster-url>/<database-name>';
+const mongoURI = 'mongodb+srv://SumanaMupparapu:Sumana@cluster0.msbktnz.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,

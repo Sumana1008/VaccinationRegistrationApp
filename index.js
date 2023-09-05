@@ -1,13 +1,16 @@
 const express = require('express');
+const mongoose = require("mongoose");
+const {mongoConnect}= require("./controllers/mongoController")
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+mongoConnect();
 // Middleware and route setup
 app.use(express.json());
 
 const userRoutes = require('./routes/userRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const slotRoutes = require('./routes/slotRoutes');
+const dbConnection = require('./db');
 
 app.use('/api/users', userRoutes);
 app.use('/api/admin', adminRoutes);
