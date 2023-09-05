@@ -5,12 +5,13 @@ const slotController = require('../controllers/slotController');
 const authMiddleware = require('../middlewares/authMiddleware');
 
 // List available slots
-router.get('/available', slotController.listAvailableSlots);
+// List available vaccine slots for a given day
+router.get('/list-available', slotController.listAvailableSlots);
 
-// Register for a slot (Example)
-router.post('/register', authMiddleware.userAuth, slotController.registerSlot);
+// Register a user for a vaccine slot
+router.post('/register', slotController.registerSlot);
 
-// Update a registered slot (Example)
-router.put('/update/:slotId', authMiddleware.userAuth, slotController.updateSlot);
+// Update a registered vaccine slot
+router.put('/update', slotController.updateSlot);
 
 module.exports = router;
