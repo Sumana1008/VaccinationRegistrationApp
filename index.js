@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 mongoConnect();
 // Middleware and route setup
-app.use(express.json());
+app.use(express.json());//parse json request bodies
 
 const userRoutes = require('./routes/userRoutes');
 const adminRoutes = require('./routes/adminRoutes');

@@ -15,3 +15,4 @@ router.post('/register', slotController.registerSlot);
 router.put('/update', slotController.updateSlot);
 
 module.exports = router;
+//These routes are exported for use in the main application.

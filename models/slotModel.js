@@ -16,7 +16,7 @@ const slotSchema = new mongoose.Schema({
   registeredUsers: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: 'User', // References the User model for registered users
     },
   ],
 });

@@ -1,4 +1,7 @@
-// Import any necessary modules or dependencies
+/*Middleware is useful for protecting routes that require authentication. When applied to a route, it ensures that 
+only users with valid tokens can access that route,and it makes user information available in the req.user object for 
+further processing within route handlers.*/
+
 const jwt = require('jsonwebtoken');
 
 // Middleware function for user authentication
@@ -13,12 +16,13 @@ const authenticateUser = (req, res, next) => {
   // Verify the token and extract user information
   jwt.verify(token, 'your-secret-key', (err, decoded) => {
     if (err) {
+       // If the token is invalid or expired, respond with a 401 Unauthorized status and message
       return res.status(401).json({ message: 'Unauthorized: Invalid token' });
     }
 
     // Attach user information to the request for further processing
     req.user = decoded.user;
-    next();
+    next();// Continue processing the request
   });
 };
 
